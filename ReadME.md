@@ -1,3 +1,9 @@
+# GUI Access
+
+GUI access for single point downloads is maintained separately here: https://power.larc.nasa.gov/data-access-viewer/
+
+This tool exists as a back end interface that can help integrate the modeled data into your own application
+
 # Setup
 
 Use the provided environment.yml file with conda to create the necessary virtual environment required to run this tool
