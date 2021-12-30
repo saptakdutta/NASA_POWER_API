@@ -6,7 +6,7 @@ This tool exists as a back end interface that can help integrate the modeled dat
 
 # Setup
 
-Use the provided environment.yml file with conda to create the necessary virtual environment required to run this tool
+Download pythn and Anaconda as necessary. Use the provided environment.yml file with conda to create the virtual environment required to run this tool
 
 # Overview
 
