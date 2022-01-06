@@ -21,3 +21,5 @@ https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 1. more polished input/output using json/yml files
 2. ability to run as shell/batch script to avoid ide interaction
 3. additional meteorological parameters such as temp, humidity, wind speed
+
+# Commit test
