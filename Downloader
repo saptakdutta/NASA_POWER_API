@@ -1,7 +1,5 @@
 #!/bin/bash
 cd Documents/NRC/Solar_Irradiation
-
-
 eval "$(conda shell.bash hook)"
 conda activate power
 python3 irradiance.py
