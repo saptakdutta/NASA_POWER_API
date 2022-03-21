@@ -1,7 +1,7 @@
 #%% Libraries
 import pandas as pd, numpy as np, requests as req, json, tqdm
 from pathlib import Path
-from ConnLib.connector import listToString, connector
+from Library.connector import listToString, connector
 
 #%% Set working path directory
 cwd = Path.cwd()
@@ -17,13 +17,14 @@ for location in list(locations):
     if (locations[location]['Use'] == 'No'):
         locations.pop(location,None)
 
-# Grab the required parameters
+# Grab the required parameters we want to download from POWER
 parameters_file = 'parameters.csv'
 pars = pd.read_csv(path+'/Config/'+parameters_file)
+#Only grab parameters we have selected as 'Yes'
 pars = pars[pars['Use'] == 'Yes']
 params = listToString(pars["Parameter"].to_list())
 
-# Runtime parameters
+# Grab Runtime parameters
 runtime_file = 'runtime.json'
 with open(path+'/Config/'+runtime_file) as f:
   runtime = json.load(f)
