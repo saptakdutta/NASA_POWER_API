@@ -4,6 +4,10 @@ GUI access for single point downloads is maintained separately here: https://pow
 
 This tool exists as a back end interface that can help integrate the modeled data into your own application
 
+# Trial Branch
+
+This repo branch is saved for experimentation and may have code that isn't stable or working. Clone and use at your own risk
+
 # Setup
 
 Download pythn and Anaconda as necessary. Use the provided environment.yml file with conda to create the virtual environment required to run this tool
