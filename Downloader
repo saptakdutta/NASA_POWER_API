@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd Documents/NRC/Solar_Irradiation
+
+python3 irradiance.py
