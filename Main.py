@@ -1,5 +1,21 @@
 #%% Libraries
 import pandas as pd, numpy as np, requests as req, json
+from pathlib import Path
+
+#%% Set working directory
+cwd = Path.cwd()
+path = cwd.__str__()
+
+#%% List to string function
+def listToString(s):
+    listToStr = ','.join(map(str,s))
+    #return string
+    return listToStr
+
+locations_file = 'locations.json'
+# load in the json file
+with open(path+'\\'+locations_file) as f:
+    locations = json.load(f)
 
 #%%Sample parameters
 # Available time formats: LST/UTC
