@@ -1,7 +1,7 @@
 #%% Libraries
 import pandas as pd, numpy as np, requests as req, json, tqdm
 from pathlib import Path
-from ConnLib.connector import cleanup, listToString, connector
+from ConnLib.connector import listToString, connector
 
 #%% Set working path directory
 cwd = Path.cwd()
@@ -23,15 +23,20 @@ pars = pd.read_csv(path+'/Config/'+parameters_file)
 pars = pars[pars['Use'] == 'Yes']
 params = listToString(pars["Parameter"].to_list())
 
+# Runtime parameters
+runtime_file = 'runtime.json'
+with open(path+'/Config/'+runtime_file) as f:
+  runtime = json.load(f)
 # Available time formats: LST/UTC
-timeformat = 'UTC'
-#Always use RE (renewable energy) for this purpose
-community = 'RE'
+timeformat = runtime['timeformat']
+# Always use RE (renewable energy) for this purpose
+community = runtime['communities']
 # Start/end time in format: 'YYYYMMDD'
-sTime = '20200101'
-eTime = '20200201'
+sTime = runtime['sTime']
+eTime = runtime['eTime']
 
 #%% API call for given location
+print('Downloading data: \n')
 for location in tqdm.tqdm(locations):
     solar = connector(timeformat, params, community, locations[location]['Longitude'], locations[location]['Latitude'], sTime, eTime)
     solar_irr = pd.DataFrame(solar['properties']['parameter'])
