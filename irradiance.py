@@ -1,7 +1,6 @@
 #%% Libraries
 import pandas as pd, numpy as np, requests as req, json, tqdm
 from pathlib import Path
-from scipy.interpolate import interp1d, interp2d
 from ConnLib.connector import cleanup, listToString, connector
 
 #%% Set working path directory
@@ -35,11 +34,7 @@ eTime = '20200201'
 #%% API call for given location
 for location in tqdm.tqdm(locations):
     solar = connector(timeformat, params, community, locations[location]['Longitude'], locations[location]['Latitude'], sTime, eTime)
-    #Isolate only the required solar parameter
-    data = solar['properties']['parameter']['ALLSKY_SFC_SW_DWN']
-    solar_irr = pd.DataFrame({'Time':data.keys(),
-                              'Solar Irradiation':data.values()})
-    cleanup(solar_irr,'Time','Solar Irradiation')
-    solar_irr.to_csv(path+'/Data/{}_Solar.csv'.format(location), index=False)
+    solar_irr = pd.DataFrame(solar['properties']['parameter'])
+    solar_irr.to_csv(path+'/Data/{}_Solar.csv'.format(location))
 
 # %%
