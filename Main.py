@@ -22,6 +22,15 @@ url = 'https://power.larc.nasa.gov/api/temporal/hourly/point?Time='+timeformat+'
 solar = req.get(url)
 
 solar = solar.json()
-solar['properties']['parameter']['ALLSKY_SFC_SW_DWN']
+
+#%%Truning into a df and csv for easier access
+data = solar['properties']['parameter']['ALLSKY_SFC_SW_DWN']
+solar_irr = pd.DataFrame({'Time':data.keys(),
+                          'Solar Irradiation':data.values()})
+solar_irr['Time'] = pd.to_datetime(solar_irr['Time'], format = '%Y%m%d%H')
+solar_irr['Solar Irradiation'] = solar_irr['Solar Irradiation'].astype(float)
+solar_irr['Time'] = solar_irr['Time'].dt.tz_localize('UTC').dt.tz_convert('EST')
+print(solar_irr.head(5))
+solar_irr.to_csv('Solar.csv', index = False)
 
 # %%
