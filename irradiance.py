@@ -7,6 +7,9 @@ from Library.connector import listToString, connector
 cwd = Path.cwd()
 path = cwd.__str__()
 
+# Identify correct environment 
+
+
 #Grab the locations
 locations_file = 'locations.json'
 #load in the json file

@@ -15,12 +15,12 @@
         "Longitude":"-76.46"
     },
     "Montreal":{
-        "Use":"No",
+        "Use":"Yes",
         "Latitude":"45.50",
         "Longitude":"-73.67"
     },
     "Trenton":{
-        "Use":"No",
+        "Use":"Yes",
         "Latitude":"44.10",
         "Longitude":"-77.58"
     },
