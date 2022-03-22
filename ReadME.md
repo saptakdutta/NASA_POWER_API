@@ -49,7 +49,7 @@ Currently the tool is set up to run from a mac bash script. However, that should
 https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 
 # Current Progress
-<input type="checkbox" disabled checked /> Create a streamlined json/csv input interface for running the tool
+- [x] Create a streamlined json/csv input interface for running the tool
 
 <input type="checkbox" disabled checked /> Created a shell interface to run the tool so that jupyter or a python IDE is not necessary
 
