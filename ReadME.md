@@ -51,12 +51,12 @@ https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 # Current Progress
 - [x] Create a streamlined json/csv input interface for running the tool
 
-<input type="checkbox" disabled checked /> Created a shell interface to run the tool so that jupyter or a python IDE is not necessary
+- [x] Created a shell interface to run the tool so that jupyter or a python IDE is not necessary
 
-<input type="checkbox" disabled checked /> Formatted the tool better so that all libraries are separated from main, all config options are isolated etc.  
+- [x] Formatted the tool better so that all libraries are separated from main, all config options are isolated etc.  
 
 # Future Work
 
-<input type="checkbox" disabled/> batch file interface for windows users (currently supports macOS shell scripts)
+- [] batch file interface for windows users (currently supports macOS shell scripts)
 
-<input type="checkbox" disabled/> additional meteorological parameters such as temp, humidity, wind speed
+- [] additional meteorological parameters such as temp, humidity, wind speed
