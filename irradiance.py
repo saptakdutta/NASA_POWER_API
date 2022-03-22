@@ -8,6 +8,7 @@ cwd = Path.cwd()
 path = cwd.__str__()
 # Identify correct environment 
 print('The downloader is currently using the following venv: {} \n'.format(sys.executable))
+print('The currently used path is {}. \n'.format(path))
 
 # Grab the locations file
 locations_file = 'locations.json'
