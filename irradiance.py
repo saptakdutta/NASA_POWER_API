@@ -11,7 +11,7 @@ print('The downloader is currently using the following venv: {} \n'.format(sys.e
 
 # Grab the locations file
 locations_file = 'locations.json'
-# load in the json file
+# Load in the json file
 with open(path+'/Config/'+locations_file) as f:
   locations = json.load(f)
 # Now only keep the locations which you want data for

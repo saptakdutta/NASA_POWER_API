@@ -25,17 +25,17 @@
         "Longitude":"-77.58"
     },
     "Borden":{
-        "Use":"No",
+        "Use":"Yes",
         "Latitude":"44.28",
         "Longitude":"-79.89"
     },
     "Gagetown":{
-        "Use":"No",
+        "Use":"Yes",
         "Latitude":"45.78",
         "Longitude":"-66.15"
     },
     "Halifax":{
-        "Use":"No",
+        "Use":"Yes",
         "Latitude":"44.65",
         "Longitude":"-63.59"
     }
