@@ -1,0 +1,5 @@
+#!/bin/bash
+cd Documents/Code/Python/NASA_POWER_API #add your path in here
+eval "$(conda shell.bash hook)"
+conda activate power
+python3 irradiance.py

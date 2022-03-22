@@ -1,4 +1,4 @@
-name: Solar_Irradiation
+name: POWER
 channels:
   - defaults
 dependencies:
