@@ -1,7 +1,7 @@
 # Libraries
 import pandas as pd, numpy as np, requests as req, json, tqdm, sys
 from pathlib import Path
-from Library.connector import listToString, connector
+from Library.connector import objOperators, powerApiConnector
 
 # Set working path directory
 cwd = Path.cwd()
@@ -37,11 +37,13 @@ parameters_file = 'parameters.csv'
 pars = pd.read_csv(path+'/Config/'+parameters_file)
 # Only grab parameters we have selected as 'Yes'
 pars = pars[pars['Use'] == 'Yes']
-params = listToString(pars["Parameter"].to_list())
+strTransform = pars
+params = pars.listToString(pars["Parameter"].to_list())
 
 # API call for given location
 print('Downloading data: \n')
 for location in tqdm.tqdm(locations):
-    solar = connector(timeformat, params, community, locations[location]['Longitude'], locations[location]['Latitude'], sTime, eTime)
-    solar_irr = pd.DataFrame(solar['properties']['parameter'])
-    solar_irr.to_csv(path+'/Data/{}_Solar.csv'.format(location))
+  solar_data = powerApiConnector
+  solar = solar_data.solarConnector(timeformat, params, community, locations[location]['Longitude'], locations[location]['Latitude'], sTime, eTime)
+  solar_irr = pd.DataFrame(solar['properties']['parameter'])
+  solar_irr.to_csv(path+'/Data/{}_Solar.csv'.format(location))
