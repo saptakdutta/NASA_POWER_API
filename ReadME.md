@@ -8,6 +8,9 @@ This tool exists as a back end interface that can help integrate the modeled dat
 
 Download python and Anaconda as necessary. Use the provided environment.yml file with conda to create the virtual environment required to run this tool
 
+# Testing Branch
+This branch is the testing branch where experimental changes will be rolled out. Use at your own risk
+
 # Overview
 
 This repository contains an API that streamlines solar irradiation data downloads from NASA's POWER (Prediction Of Worldwide Energy Resources) program. 
