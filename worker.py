@@ -37,8 +37,9 @@ parameters_file = 'parameters.csv'
 pars = pd.read_csv(path+'/Config/'+parameters_file)
 # Only grab parameters we have selected as 'Yes'
 pars = pars[pars['Use'] == 'Yes']
-strTransform = pars
-params = pars.listToString(pars["Parameter"].to_list())
+###? OBJ strTransform not working for some reason
+strTransform = objOperators
+params = strTransform.listToString(pars["Parameter"].to_list())
 
 # API call for given location
 print('Downloading data: \n')
