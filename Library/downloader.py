@@ -9,6 +9,7 @@ simulated solar weather parameters from NASA's POWER API
 from time import time
 import tqdm, pandas as pd
 from Library.connector import powerApiConnector, objOperators
+from Library.logger import autoLogger
 
 class weatherDownloader:
     def __init__(self, format, filePath, locations, timeformat, start_time, end_time):
@@ -29,6 +30,8 @@ class weatherDownloader:
             else:
                 #pathway to h5py data download
                 solar_irr.to_hdf(self.path+'/Data/{}_Solar.h5'.format(location), '{}_Solar'.format(location))
+            #Log the completion
+            autoLogger(self.path).processCompletion('{}_Solar'.format(location))
         #For debugging       
         #return(solar_irr)
     def tempDownloader(self):
