@@ -62,4 +62,5 @@ dependencies:
   - zeromq=4.3.3=ha925a31_3
   - pip:
     - tqdm==4.61.2
+    - hdf5==1.10.4
 prefix: C:\Users\duttas\Anaconda3\envs\DND_Steady_State

@@ -11,6 +11,9 @@ Download python and Anaconda as necessary. Use the provided environment.yml file
 # Testing Branch
 This branch is the testing branch where experimental changes will be rolled out. Use at your own risk
 
+## Data Storage
+The project will be moving away from csv's as a data storage medium due to the fact that re-building the metadata is tedious and time consuming. Instead the project will focus on the HDF5 format which can be used to store local files and preserve metadata information. A legacy pathway will be enabled in the connector object dealing with downloads, so if users insist on CSV's, they can still use them.
+
 # Overview
 
 This repository contains an API that streamlines solar irradiation data downloads from NASA's POWER (Prediction Of Worldwide Energy Resources) program. 
