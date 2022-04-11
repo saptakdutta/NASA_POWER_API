@@ -55,10 +55,14 @@ https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 
 - [x] Created a shell interface to run the tool so that jupyter or a python IDE is not necessary
 
-- [x] Formatted the tool better so that all libraries are separated from main, all config options are isolated etc.  
+- [x] Formatted the tool better so that all libraries are separated from main, all config options are isolated etc. 
+
+- [x] More readable and modular code: created readable objects 
 
 # Future Work
 
 - [ ] batch file interface for windows users (currently supports macOS shell scripts)
 
 - [ ] additional meteorological parameters such as temp, humidity, wind speed
+
+- [ ] integrate h5py storage medium as defaul (csv legacy pathway will be preserved)
