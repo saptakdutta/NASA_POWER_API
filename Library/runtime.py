@@ -5,18 +5,19 @@ from pathlib import Path
 class workPath:
     def __init__(self) :
         #define the path of the virtual environment and the tool
+        pass
+    def vEnvPath(self):
         v_EnvPath = sys.executable
+        return (v_EnvPath)
+    def toolPath(self):
         cwd = Path.cwd()
         tool_Path = cwd.__str__()
-    def vEnvPath(self):
-        return self.v_EnvPath
-    def toolPath(self):
-        return self.tool_Path
+        return tool_Path
 
 class weatherLocations:
     def __init__(self):
         pass
-    def weatherLocations(self, fileName, filePath):
+    def weatherLoc(self, fileName, filePath):
         locations_file = fileName
         # Load in the json file
         with open(filePath+'/Config/'+locations_file) as f:
