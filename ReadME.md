@@ -8,6 +8,12 @@ This tool exists as a back end interface that can help integrate the modeled dat
 
 Download python and Anaconda as necessary. Use the provided environment.yml file with conda to create the virtual environment required to run this tool
 
+# Testing Branch
+This branch is the testing branch where experimental changes will be rolled out. Use at your own risk
+
+## Data Storage
+The project will be moving away from csv's as a data storage medium due to the fact that re-building the metadata is tedious and time consuming. Instead the project will focus on the HDF5 format which can be used to store local files and preserve metadata information. A legacy pathway will be enabled in the connector object dealing with downloads, so if users insist on CSV's, they can still use them.
+
 # Overview
 
 This repository contains an API that streamlines solar irradiation data downloads from NASA's POWER (Prediction Of Worldwide Energy Resources) program. 
@@ -49,10 +55,16 @@ https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 
 - [x] Created a shell interface to run the tool so that jupyter or a python IDE is not necessary
 
-- [x] Formatted the tool better so that all libraries are separated from main, all config options are isolated etc.  
+- [x] Formatted the tool better so that all libraries are separated from main, all config options are isolated etc. 
+
+- [x] More readable and modular code: created objects with discrete methods
+
+- [x] integrate h5py storage medium as defaul (csv legacy pathway will be preserved)
+
+- [x] proper logging through a logger module for easier bug detection
 
 # Future Work
-
 - [ ] batch file interface for windows users (currently supports macOS shell scripts)
 
 - [ ] additional meteorological parameters such as temp, humidity, wind speed
+

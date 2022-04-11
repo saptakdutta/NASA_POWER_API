@@ -10,32 +10,32 @@
         "Longitude":"-79.38"
     },
     "Kingston":{
-        "Use":"Yes",
+        "Use":"No",
         "Latitude":"44.24",
         "Longitude":"-76.46"
     },
     "Montreal":{
-        "Use":"Yes",
+        "Use":"No",
         "Latitude":"45.50",
         "Longitude":"-73.67"
     },
     "Trenton":{
-        "Use":"Yes",
+        "Use":"No",
         "Latitude":"44.10",
         "Longitude":"-77.58"
     },
     "Borden":{
-        "Use":"Yes",
+        "Use":"No",
         "Latitude":"44.28",
         "Longitude":"-79.89"
     },
     "Gagetown":{
-        "Use":"Yes",
+        "Use":"No",
         "Latitude":"45.78",
         "Longitude":"-66.15"
     },
     "Halifax":{
-        "Use":"Yes",
+        "Use":"No",
         "Latitude":"44.65",
         "Longitude":"-63.59"
     }
