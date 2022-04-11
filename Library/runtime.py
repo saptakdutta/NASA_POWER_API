@@ -1,6 +1,7 @@
 #Libraries 
-import sys as sys, json
+import sys as sys, json, pandas as pd
 from pathlib import Path
+from Library.connector import objOperators
 
 class workPath:
     def __init__(self) :
@@ -18,22 +19,20 @@ class weatherLocations:
     def __init__(self):
         pass
     def weatherLoc(self, fileName, filePath):
-        locations_file = fileName
         # Load in the json file
-        with open(filePath+'/Config/'+locations_file) as f:
+        with open(filePath+'/Config/'+fileName) as f:
             locations_file = json.load(f)
             # Now only keep the locations which you want data for
             for location in list(locations_file):
                 if (locations_file[location]['Use'] == 'No'):
                     locations_file.pop(location,None)
         return locations_file
-    
+
 class runTimePars:
     def __init__(self) -> None:
         pass
     def runTime(self, fileName, filePath):
-        runtime_file = fileName
-        with open(filePath+'/Config/'+runtime_file) as f:
+        with open(filePath+'/Config/'+fileName) as f:
             runtime = json.load(f)
         # Available time formats: LST/UTC
         timeformat = runtime['timeformat']
@@ -43,3 +42,14 @@ class runTimePars:
         sTime = runtime['sTime']
         eTime = runtime['eTime']
         return sTime, eTime, timeformat, community
+
+class weatherParams:
+    def __init__(self):
+        pass
+    def dlParams(self, fileName, filePath):
+        pars = pd.read_csv(filePath+'/Config/'+fileName)
+        # Only grab parameters we have selected as 'Yes'
+        pars = pars[pars['Use'] == 'Yes']
+        strTransform = objOperators()
+        params = strTransform.listToString(s = pars["Parameter"].to_list())
+        return params
