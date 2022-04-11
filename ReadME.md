@@ -60,10 +60,10 @@ https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 - [x] More readable and modular code: created objects with discrete methods
 
 - [x] integrate h5py storage medium as defaul (csv legacy pathway will be preserved)
+
+- [x] proper logging through a logger module for easier bug detection
+
 # Future Work
-
-- [ ] proper logging through a logger module for easier bug detection
-
 - [ ] batch file interface for windows users (currently supports macOS shell scripts)
 
 - [ ] additional meteorological parameters such as temp, humidity, wind speed
