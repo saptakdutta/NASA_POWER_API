@@ -38,6 +38,29 @@ A hypothetically unlimited number of locations may be used in this tool, but do 
 
 This csv file contains pre defined parameters from the NASA POWER API. All parameters which are intended to be downloaded must be marked as "Yes" under the **Use** column. Parameters marked as "No" will simply be skipped for the runtime of the tool. More parameters can be found in the included hyperlinks to the POWER API. However, some parameters will not work wih the API call included in the library... modifications *may* have to be made to the baseline functions in order to get it to work with other params.
 
+**Parameter(s)**: 
+ALLSKY_SFC_SW_DWN       CERES SYN1deg All Sky Surface Shortwave Downward Irradiance (Wh/m^2) 
+CLRSKY_SFC_SW_DWN       CERES SYN1deg Clear Sky Surface Shortwave Downward Irradiance (Wh/m^2) 
+ALLSKY_KT               CERES SYN1deg All Sky Insolation Clearness Index (dimensionless) 
+ALLSKY_SRF_ALB          CERES SYN1deg All Sky Surface Albedo (dimensionless) 
+SZA                     CERES SYN1deg Solar Zenith Angle (Degrees) 
+ALLSKY_SFC_PAR_TOT      CERES SYN1deg All Sky Surface PAR Total (W/m^2) 
+ALLSKY_SFC_UV_INDEX     CERES SYN1deg All Sky Surface UV Index (dimensionless) 
+ALLSKY_SFC_UVB          CERES SYN1deg All Sky Surface UVB Irradiance (W/m^2) 
+ALLSKY_SFC_UVA          CERES SYN1deg All Sky Surface UVA Irradiance (W/m^2) 
+CLRSKY_SFC_PAR_TOT      CERES SYN1deg Clear Sky Surface PAR Total (W/m^2) 
+T2M                     MERRA-2 Temperature at 2 Meters (C) 
+T2MDEW                  MERRA-2 Dew/Frost Point at 2 Meters (C) 
+T2MWET                  MERRA-2 Wet Bulb Temperature at 2 Meters (C) 
+QV2M                    MERRA-2 Specific Humidity at 2 Meters (g/kg) 
+RH2M                    MERRA-2 Relative Humidity at 2 Meters (%) 
+PRECTOTCORR             MERRA-2 Precipitation Corrected (mm/hour) 
+PS                      MERRA-2 Surface Pressure (kPa) 
+WS10M                   MERRA-2 Wind Speed at 10 Meters (m/s) 
+WD10M                   MERRA-2 Wind Direction at 10 Meters (Degrees) 
+WS50M                   MERRA-2 Wind Speed at 50 Meters (m/s) 
+WD50M                   MERRA-2 Wind Direction at 50 Meters (Degrees) 
+
 ## runtime.json
 
 This file contains important runtime variables for the tool. Timeformat can be either "UTC" or "LST". Communities should always be set to "RE", and the start and end dates ("sDate", "eDate") are up to the user to input
