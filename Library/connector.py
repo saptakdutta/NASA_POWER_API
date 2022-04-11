@@ -2,11 +2,11 @@
 Author: Saptak Dutta
 Email: saptak.dutta@gmail.com
 
-This script contains a list of functional programs that allows the user to pull 
+This script contains a list of objects that allows the user to connect to 
 simulated solar weather parameters from NASA's POWER API
 '''
 # Libraries
-import numpy as np, json, requests as req, pandas as pd, h5py as hPy
+import requests as req, pandas as pd
 
 # Functions
 class objOperators:
@@ -18,11 +18,12 @@ class objOperators:
         # return string
         return listToStr
     #Dataframe return
-    def cleanup(self, df, colname1, colname2):
+    def dfClean(self, df):
         '''Enter in a time column and a value column to have one cleaned up as a datetime and the other as a float64'''
-        df[colname1] = pd.to_datetime(df[colname1], format = '%Y%m%d%H')
-        df[colname2] = df[colname2].astype(float)
-        df[colname1] = df[colname1].dt.tz_localize('UTC').dt.tz_convert('EST')
+        df = df.reset_index()
+        df = df.rename({'index':'DateTime'}, axis =1)
+        df['DateTime'] = pd.to_datetime(df['DateTime'], format = '%Y%m%d%H')
+        df = df.set_index('DateTime')
         return df
 
 class powerApiConnector:
@@ -35,7 +36,7 @@ class powerApiConnector:
         solar = solar.json()
         return solar
 
-class weatherConnector:
+class tempConnector:
     def __init_(self):
         pass
     #This object is meant to represent pulling non solar data from enviro can's historical weather database

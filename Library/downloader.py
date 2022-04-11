@@ -1,16 +1,36 @@
-import tqdm, pandas as pd, h5py as hPy
-from Library.connector import powerApiConnector
+'''
+Author: Saptak Dutta
+Email: saptak.dutta@gmail.com
 
-class solarDownloader:
-    def __init__(self, format):
+This script contains a list of objects that allows the user to download 
+simulated solar weather parameters from NASA's POWER API
+'''
+#Libraries
+from time import time
+import tqdm, pandas as pd
+from Library.connector import powerApiConnector, objOperators
+
+class weatherDownloader:
+    def __init__(self, format, filePath, locations, timeformat, start_time, end_time):
         self.dlFormat = format
-    def solarDownload(self, path, locations, timeformat, params, community, sTime, eTime):
-        for location in tqdm.tqdm(locations):
-            solar_data = powerApiConnector()
-            solar = solar_data.solarConnector(timeformat, params, community, locations[location]['Longitude'], locations[location]['Latitude'], sTime, eTime)
+        self.path = filePath
+        self.locations = locations
+        self.timeformat = timeformat
+        self.sTime = start_time
+        self.eTime = end_time
+    def solarDownload(self, solarParams, community):
+        for location in tqdm.tqdm(self.locations):
+            solar = powerApiConnector().solarConnector(self.timeformat, solarParams, community, self.locations[location]['Longitude'], self.locations[location]['Latitude'], self.sTime, self.eTime)
+            solar_irr = pd.DataFrame(solar['properties']['parameter'])
+            solar_irr = objOperators().dfClean(solar_irr)
             if (self.dlFormat == 'CSV'):
-                solar_irr = pd.DataFrame(solar['properties']['parameter'])
-                solar_irr.to_csv(path+'/Data/{}_Solar.csv'.format(location))
+                # Use this pathway if you insist... but you will have to rebuild ALL the metadata again...
+                solar_irr.to_csv(self.path+'/Data/{}_Solar.csv'.format(location))
             else:
                 #pathway to h5py data download
-                break
+                solar_irr.to_hdf(self.path+'/Data/{}_Solar.h5'.format(location), '{}_Solar'.format(location))
+        #For debugging       
+        #return(solar_irr)
+    def tempDownloader(self):
+        #this is the downloader method for temperature downloads: future work (probably wet and dry bulb temp)
+        pass

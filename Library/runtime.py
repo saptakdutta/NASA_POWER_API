@@ -1,3 +1,10 @@
+'''
+Author: Saptak Dutta
+Email: saptak.dutta@gmail.com
+
+This script contains a list of objects that allows the user to collect
+necessary runtime data to run the POWER API tool.
+'''
 #Libraries 
 import sys as sys, json, pandas as pd
 from pathlib import Path

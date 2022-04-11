@@ -1,6 +1,7 @@
-# Libraries
+#%% Libraries
 from Library.runtime import workPath, weatherLocations, runTimePars, weatherParams
-from Library.downloader import solarDownloader
+from Library.downloader import weatherDownloader
+#from Library.logger import logging
 
 #%% Set working path directory
 envPath = workPath().vEnvPath()
@@ -16,6 +17,8 @@ sTime, eTime, timeformat, community = runTimePars().runTime('runtime.json', file
 # Grab the required weather parameters we want to download from POWER
 params = weatherParams().dlParams('parameters.csv',filePath)
 
-# API call for given location
+#%% API call for given location
 print('Downloading data: \n')
-download = solarDownloader('CSV').solarDownload(filePath,locations, timeformat, params, community, sTime, eTime)
+download = weatherDownloader('hdf5', filePath, locations, timeformat, sTime, eTime).solarDownload(params, community)
+
+# %%
