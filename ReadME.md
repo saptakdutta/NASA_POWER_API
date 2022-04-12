@@ -91,5 +91,7 @@ https://power.larc.nasa.gov/docs/services/api/temporal/hourly/
 
 - [x] additional meteorological parameters such as temp, humidity, wind speed
 
+- [x] batch file interface for windows users (currently supports macOS shell scripts)
+
 # Future Work
-- [ ] batch file interface for windows users (currently supports macOS shell scripts)
+- [ ] Feel free to open a ticket about changes you'd like to see
