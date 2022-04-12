@@ -19,21 +19,18 @@ class weatherDownloader:
         self.timeformat = timeformat
         self.sTime = start_time
         self.eTime = end_time
-    def solarDownload(self, solarParams, community):
+    def powerDownload(self, apiParams, community):
         for location in tqdm.tqdm(self.locations):
-            solar = powerApiConnector().solarConnector(self.timeformat, solarParams, community, self.locations[location]['Longitude'], self.locations[location]['Latitude'], self.sTime, self.eTime)
-            solar_irr = pd.DataFrame(solar['properties']['parameter'])
-            solar_irr = objOperators().dfClean(solar_irr)
+            solar = powerApiConnector().powerSPConnector(self.timeformat, apiParams, community, self.locations[location]['Longitude'], self.locations[location]['Latitude'], self.sTime, self.eTime)
+            data = pd.DataFrame(solar['properties']['parameter'])
+            data = objOperators().dfClean(data)
             if (self.dlFormat == 'CSV'):
                 # Use this pathway if you insist... but you will have to rebuild ALL the metadata again...
-                solar_irr.to_csv(self.path+'/Data/{}_Solar.csv'.format(location))
+                data.to_csv(self.path+'/Data/{}_POWER.csv'.format(location))
             else:
                 #pathway to h5py data download
-                solar_irr.to_hdf(self.path+'/Data/{}_Solar.h5'.format(location), '{}_Solar'.format(location))
+                data.to_hdf(self.path+'/Data/{}_POWER.h5'.format(location), '{}_POWER'.format(location))
             #Log the completion
-            autoLogger(self.path).processCompletion('{}_Solar'.format(location))
+            autoLogger(self.path).processCompletion('{}_POWER'.format(location))
         #For debugging       
-        #return(solar_irr)
-    def tempDownloader(self):
-        #this is the downloader method for temperature downloads: future work (probably wet and dry bulb temp)
-        pass
+        #return(data)

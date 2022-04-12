@@ -9,6 +9,7 @@ necessary runtime data to run the POWER API tool.
 import sys as sys, json, pandas as pd
 from pathlib import Path
 from Library.connector import objOperators
+from Library.logger import autoLogger
 
 class workPath:
     def __init__(self) :
@@ -57,6 +58,11 @@ class weatherParams:
         pars = pd.read_csv(filePath+'/Config/'+fileName)
         # Only grab parameters we have selected as 'Yes'
         pars = pars[pars['Use'] == 'Yes']
+        if (len(pars)>=14):
+            print('Warning! Maximum parameter length of 14 exceeded. Tool will truncate params to first 14 selected....')
+            autoLogger(filePath).warning('Maximum parameter limit exceeded...truncating params to first 14 in list.')
+            pars = pars[0:14]
         strTransform = objOperators()
+        #convert the list to a string for the API call
         params = strTransform.listToString(s = pars["Parameter"].to_list())
         return params

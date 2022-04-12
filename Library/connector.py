@@ -29,14 +29,9 @@ class objOperators:
 class powerApiConnector:
     def __init__(self):
         pass
-    #POWER SolarConnector
-    def solarConnector(self, timeformat, params, community, longitude, latitude, sTime, eTime):
+    #POWER Single Point Download Connector
+    def powerSPConnector(self, timeformat, params, community, longitude, latitude, sTime, eTime):
         url = 'https://power.larc.nasa.gov/api/temporal/hourly/point?Time='+timeformat+'&parameters='+params+'&community='+community+'&longitude='+longitude+'&latitude='+latitude+'&start='+sTime+'&end='+eTime+'&format=JSON'
-        solar = req.get(url)
-        solar = solar.json()
-        return solar
-
-class tempConnector:
-    def __init_(self):
-        pass
-    #This object is meant to represent pulling non solar data from enviro can's historical weather database
+        data = req.get(url)
+        data = data.json()
+        return data
