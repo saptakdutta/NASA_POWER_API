@@ -18,3 +18,5 @@ class autoLogger:
         return ('\n Logger activated...')
     def processCompletion(self, functionName):
         logging.debug('Completed {} at {}'.format(functionName, datetime.now()))
+    def warning(self, warnText):
+        logging.warning('Possibe exectution warning: {}'.format(warnText))

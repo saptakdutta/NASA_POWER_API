@@ -3,7 +3,7 @@ from Library.runtime import workPath, weatherLocations, runTimePars, weatherPara
 from Library.downloader import weatherDownloader
 from Library.logger import autoLogger
 
-#%% Set working path directory
+# Set working path directory
 envPath = workPath().vEnvPath()
 filePath = workPath().toolPath()
 print(autoLogger(filePath).loggerDefine('ErrorLogs'))
@@ -23,7 +23,7 @@ autoLogger(filePath).processCompletion('solar_params')
 
 #%% API call for given location
 print('Downloading data: \n')
-download = weatherDownloader('hdf5', filePath, locations, timeformat, sTime, eTime).solarDownload(params, community)
+download = weatherDownloader('hdf5', filePath, locations, timeformat, sTime, eTime).powerDownload(params, community)
 autoLogger(filePath).processCompletion('all downloads')
 
 # %%
